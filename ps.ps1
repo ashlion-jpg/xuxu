@@ -1,6 +1,6 @@
 do {
     try {
-        $scriptPath = Join-Path ([Environment]::GetFolderPath([Environment+SpecialFolder]::Mymusic)) "Savii.ps1"
+        $scriptPath = Join-Path ([Environment]::GetFolderPath([Environment+SpecialFolder]::MyMusic)) "Savii.ps1"
         if (Test-Path $scriptPath) {
             Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$scriptPath`"" -Verb RunAs
             $success = $true
